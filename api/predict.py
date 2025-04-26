@@ -1,7 +1,11 @@
+import os
+import sys
 import pickle
 import numpy as np
 from http.server import BaseHTTPRequestHandler
 from urllib.parse import parse_qs, urlparse
+
+sys.path.append(os.path.dirname(__file__))
 
 with open('model.pkl', 'rb') as f:
     model = pickle.load(f)
