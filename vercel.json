@@ -3,20 +3,45 @@
     {
       "src": "api/*.py",
       "use": "@vercel/python",
-      "config": { 
-        "includeFiles": "api/model.pkl"
+      "config": {
+        "includeFiles": "api/model.pkl",
+        "maxLambdaSize": "50mb"
+      }
+    },
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
       }
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/api/$1"
+      "dest": "/api/$1",
+      "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type"
+      }
     },
     {
       "src": "/(.*)",
       "dest": "/index.html",
       "status": 200
+    },
+    {
+      "src": "/assets/(.*)",
+      "headers": {
+        "Cache-Control": "public, max-age=31536000, immutable"
+      }
     }
-  ]
+  ],
+  "github": {
+    "silent": true,
+    "autoAlias": true
+  },
+  "public": true,
+  "regions": ["iad1"]
 }

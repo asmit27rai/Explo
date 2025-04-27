@@ -8,7 +8,7 @@ export default function PredictionForm({ onSubmit }) {
     'Y (wt%)', 'Zn (wt%)', 'Mg (wt%)', 'Si (wt%)', 'Al (wt%)',
     'Sn (wt%)', 'Zr (wt%)', 'W (wt%)', 'Ti (wt%)', 'V (wt%)',
     'Co (wt%)', 'Cu (wt%)', 'Ta (wt%)', 'Nb (wt%)', 'Ni (wt.%)',
-    'Cr (wt.%)', 'Fe (wt.%)', 'Mn (wt%)', 'Mo (wt.%)'
+    'Cr (wt.%)', 'Fe (wt.%)', 'Mn (wt%)', 'Mo (wt.%)', 'ohe_sub', 'ohe_mat'
   ]
 
   const handleSubmit = (e) => {
